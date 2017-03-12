@@ -8,3 +8,6 @@ Homestead.json
 Homestead.yaml
 .env
 blog.sublime*
+composer.lock
+public/css/*
+public/js/*
