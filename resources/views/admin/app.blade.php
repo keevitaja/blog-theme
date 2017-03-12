@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="{{ mix('/css/admin.css') }}">
 </head>
 <body>
-    <h1>hello</h1>
+    @include('admin.partials.header')
+        <main>
+            @yield('content')
+        </main>
+    @include('admin.partials.footer')
 </body>
 </html>
