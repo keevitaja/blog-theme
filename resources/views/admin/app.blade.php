@@ -8,9 +8,13 @@
 </head>
 <body>
     @include('admin.partials.header')
-        <main>
+
+    @include('admin.partials.messages')
+        <main class="container">
             @yield('content')
         </main>
     @include('admin.partials.footer')
+
+    <script src="{{ mix('/js/admin.js') }}"></script>
 </body>
 </html>

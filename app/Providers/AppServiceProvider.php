@@ -2,6 +2,7 @@
 
 namespace Blog\Providers;
 
+use Blog\Handlers\PageHandler;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('page', PageHandler::class);
     }
 }

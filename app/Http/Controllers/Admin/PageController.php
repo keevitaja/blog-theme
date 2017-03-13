@@ -2,8 +2,11 @@
 
 namespace Blog\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use Blog\Content;
 use Blog\Http\Controllers\Controller;
+use Blog\Http\Requests\Admin\PageRequest;
+use Blog\Page;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -24,19 +27,28 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.page.create');
     }
 
     /**
      * Store a newly created page in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Blog\Http\Requests\Admin\PageRequest  $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PageRequest $request, Content $content)
     {
-        //
+        $page = $content->create($request->all())->page()->create([]);
+
+        $page->route()->create([
+            'type' => 'page',
+            'uri' => $request->get('uri')
+        ]);
+
+        session()->flash('success', 'admin.messages.page.stored');
+
+        return redirect()->route('admin.page.edit', $page->id);
     }
 
     /**
@@ -46,20 +58,20 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Page $page)
     {
-        //
+        return view('admin.page.edit', compact($page));
     }
 
     /**
      * Update the specified page in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Blog\Http\Requests\Admin\PageRequest  $request
      * @param  int  $id
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PageRequest $request, $id)
     {
         //
     }
