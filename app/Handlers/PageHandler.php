@@ -6,6 +6,11 @@ use Blog\Page;
 
 class PageHandler
 {
+    /**
+     * Page model
+     *
+     * @var \Blog\Page
+     */
     protected $page;
 
     public function __construct(Page $page)
@@ -13,10 +18,17 @@ class PageHandler
         $this->page = $page;
     }
 
+    /**
+     * Handle the incoming request
+     *
+     * @param integer $id
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function handle($id)
     {
-        $page = $this->page->findOrFail($id);
+        $content = $this->page->findOrFail($id)->content;
 
-        return $page->content;
+        return view('page', ['content' => $content]);
     }
 }

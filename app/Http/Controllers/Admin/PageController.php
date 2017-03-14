@@ -15,9 +15,9 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Page $page)
     {
-        return view('admin.page.index');
+        return view('admin.page.index', ['pages' => $page->with('content')->get()]);
     }
 
     /**
@@ -34,6 +34,7 @@ class PageController extends Controller
      * Store a newly created page in storage.
      *
      * @param  \Blog\Http\Requests\Admin\PageRequest  $request
+     * @param  \Blog\Content $content
      *
      * @return \Illuminate\Http\Response
      */
@@ -54,37 +55,47 @@ class PageController extends Controller
     /**
      * Show the form for editing the specified page.
      *
-     * @param  int  $id
+     * @param  \Blog\Page $page
      *
      * @return \Illuminate\Http\Response
      */
     public function edit(Page $page)
     {
-        return view('admin.page.edit', compact($page));
+        return view('admin.page.edit', ['page' => $page]);
     }
 
     /**
      * Update the specified page in storage.
      *
      * @param  \Blog\Http\Requests\Admin\PageRequest  $request
-     * @param  int  $id
+     * @param  \Blog\Page $page
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(PageRequest $request, $id)
+    public function update(PageRequest $request, Page $page)
     {
-        //
+        $page->content->update($request->all());
+        $page->route->update($request->only('uri'));
+
+        session()->flash('success', 'admin.messages.page.updated');
+
+        return back();
     }
 
     /**
      * Remove the specified page from storage.
      *
-     * @param  int  $id
+     * @param  \Blog\Page $page
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Page $page)
     {
-        //
+        $page->route->delete();
+        $page->content->delete();
+
+        session()->flash('success', 'admin.messages.page.deleted');
+
+        return back();
     }
 }

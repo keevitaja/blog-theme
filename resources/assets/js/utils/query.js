@@ -8,6 +8,18 @@ class Query
         }
     }
 
+    exists() {
+        if (this.elements.length == 0) return false
+
+        return true
+    }
+
+    first() {
+        if (this.elements.length > 0) return this.elements[0]
+
+        return this
+    }
+
     hide() {
         this.style('display', 'none')
 

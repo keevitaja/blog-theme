@@ -2,14 +2,14 @@
 
 @section('content')
     <main class="container">
-        <h1 class="title">@lang('admin.pages')</h1>
+        <h1 class="title">@lang('admin.categories')</h1>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th>@lang('admin.title')</th>
+                    <th>@lang('admin.name')</th>
                     <th class="actions">
-                        <a href="{{ route('admin.page.create') }}">
+                        <a href="{{ route('admin.category.create') }}">
                             @lang('admin.new')
                         </a>
                     </th>
@@ -17,23 +17,23 @@
             </thead>
 
             <tbody>
-                @foreach($pages as $page)
+                @foreach($categories as $category)
                     <tr>
                         <td>
-                            <a href="{{ route('admin.page.edit', $page->id) }}">
-                                {{ $page->content->title }}
+                            <a href="{{ route('admin.category.edit', $category->id) }}">
+                                {{ $category->name }}
                             </a>
                         </td>
                         <td class="actions">
                             <form
-                                action="{{ route('admin.page.destroy', $page->id) }}"
+                                action="{{ route('admin.category.destroy', $category->id) }}"
                                 method="POST"
                                 style="display: inline;"
                             >
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="DELETE">
 
-                                <a class="destroy" href="{{ route('admin.page.destroy', $page->id) }}">
+                                <a class="destroy" href="{{ route('admin.category.destroy', $category->id) }}">
                                     @lang('admin.delete')
                                 </a>
                             </form>
