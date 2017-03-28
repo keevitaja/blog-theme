@@ -17,6 +17,6 @@ $('.container.messages button.delete').on('click', (ev)=> {
 $('form .destroy').on('click', (ev)=> {
     ev.preventDefault()
 
-    $(ev.target).parent().first().submit()
+    $(ev.target).parent().get().submit()
 })
 

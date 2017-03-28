@@ -14,8 +14,8 @@ class Query
         return true
     }
 
-    first() {
-        if (this.elements.length > 0) return this.elements[0]
+    get(position = 0) {
+        if (this.elements.length > 0) return this.elements[position]
 
         return this
     }

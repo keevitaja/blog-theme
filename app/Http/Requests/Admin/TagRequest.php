@@ -24,7 +24,7 @@ class TagRequest extends FormRequest
     public function rules()
     {
         return [
-            'slug' => 'required|unique:tags',
+            'slug' => 'required',
         ];
     }
 }
