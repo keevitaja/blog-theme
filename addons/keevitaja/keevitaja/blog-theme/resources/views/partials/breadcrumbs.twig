@@ -1,0 +1,13 @@
+{% if template.breadcrumbs.count() %}
+    <aside class="breadcrumbs">
+        <a href="{{ url('/') }}">{{ trans('theme::addon.breadcrumb.home') }}</a> <span class="spacer">»</span>
+
+        {% for breadcrumb, href in template.breadcrumbs %}
+            {% if loop.last ? 'active' %}
+                {{ trans(breadcrumb) }}
+            {% else %}
+                <a href="{{ href }}">{{ trans(breadcrumb) }}</a> <span class="spacer">»</span>
+            {% endif %}
+        {% endfor %}
+    </aside>
+{% endif %}

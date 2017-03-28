@@ -1,0 +1,13 @@
+{% extends 'theme::app' %}
+
+{% block body %}
+    <main>
+        <article>
+            {% include 'theme::partials.breadcrumbs' %}
+
+            <h1 class="title">{{ page.title }}</h1>
+
+            {{ page.content|raw }}
+        </article>
+    </main>
+{% endblock %}

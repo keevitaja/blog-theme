@@ -1,0 +1,22 @@
+{% extends 'theme::app' %}
+
+{% block body %}
+    <main>
+        <article class="single">
+            {% include 'theme::posts.partials.breadcrumbs' %}
+            {% include 'theme::posts.partials.time' %}
+
+            {% include 'theme::posts.partials.post' %}
+        </article>
+
+        {% if post.tags %}
+            <footer>
+                {% for tag in post.tags.value %}
+                    <a href="{{ url_route('anomaly.module.posts::tags.view', {'tag': tag}) }}">
+                        {{ tag }}
+                    </a>
+                {% endfor %}
+            </footer>
+        {% endif %}
+    </main>
+{% endblock %}

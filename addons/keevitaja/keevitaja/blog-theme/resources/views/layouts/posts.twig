@@ -1,0 +1,29 @@
+{% extends 'theme::app' %}
+
+{% block body %}
+    <main>
+        {% for post in entries('posts').recent().paginate() %}
+            <article>
+                <aside class="post">
+                    {% if post.category %}
+                        {{ html_link(post.category.route('view'), post.category.name) }}
+
+                        <span class="spacer">·</span>
+                    {% endif %}
+
+                    <time datetime="{{ post.publish_at.iso }}">
+                        {{ post.publish_at.format(config_get('streams::datetime.date_format')) }}
+                    </time>
+                </aside>
+
+                <h1 class="title"><a href="{{ post.route('view') }}">{{ post.title }}</a></h1>
+
+                {{ post.summary|raw }}
+
+                <p>{{ html_link(post.route('view'), trans('theme::addon.blog.more')) }}</p>
+            </article>
+        {% endfor %}
+
+        {{ posts.links|raw }}
+    </main>
+{% endblock %}

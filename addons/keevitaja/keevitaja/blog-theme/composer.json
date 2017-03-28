@@ -1,0 +1,9 @@
+{
+    "name": "keevitaja/blog-theme",
+    "type": "streams-addon",
+    "autoload": {
+        "psr-4": {
+            "Keevitaja\\BlogTheme\\": "src/"
+        }
+    }
+}

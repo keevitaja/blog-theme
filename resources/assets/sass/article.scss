@@ -1,0 +1,46 @@
+article {
+    margin-bottom: 40px;
+
+    & > aside {
+        padding-left: 2px;
+        font-size: 13px;
+
+        &.breadcrumbs {
+            margin-bottom: 20px;
+        }
+
+        span.spacer {
+            margin: 0 10px;
+        }
+    }
+
+    & > time {
+        padding-left: 2px;
+        font-size: 13px;
+    }
+
+    .title {
+        margin-top: 0;
+        font-family: $secondary-font;
+        font-size: 31px;
+        font-weight: 600;
+        line-height: 1.3;
+
+        & > a {
+            color: map-get($colors, font);
+
+            &:hover {
+                color: map-get($colors, brand);
+            }
+        }
+    }
+}
+
+main > footer {
+    padding-bottom: 20px;
+    font-size: 13px;
+
+    & > a {
+        margin-right: 10px;
+    }
+}

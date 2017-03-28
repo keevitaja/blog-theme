@@ -1,0 +1,13 @@
+{% if template.breadcrumbs.count() %}
+    <aside class="breadcrumbs">
+        {% for breadcrumb, href in template.breadcrumbs %}
+            {% if template.breadcrumbs.count > loop.index %}
+                <a href="{{ href }}">{{ trans(breadcrumb) }}</a>
+
+                {% if template.breadcrumbs.count -1 > loop.index %}
+                    <span class="spacer">»</span>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </aside>
+{% endif %}

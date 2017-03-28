@@ -1,0 +1,18 @@
+body {
+    background-color: map-get($colors, light);
+    color: map-get($colors, font);
+    font-size: 17px;
+}
+
+a {
+    color: map-get($colors, brand);
+    text-decoration: none;
+
+    &:hover {
+        color: map-get($colors, font);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

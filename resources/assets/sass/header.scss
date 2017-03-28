@@ -1,0 +1,58 @@
+div.app > header > div.container {
+    background-image: linear-gradient(
+        to right,
+        map-get($colors, inverse),
+        map-get($colors, inverse) 50px,
+        map-get($colors, brand) 50px,
+        map-get($colors, brand) 240px
+    );
+
+    a.item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 40px;
+        text-decoration: none;
+
+        & > span {
+            display: block;
+
+            &.icon {
+                display: inline-block;
+                width: 50px;
+                min-width: 50px;
+                color: map-get($colors, white);
+                text-align: center;
+                font-size: 24px;
+                transition: color .1s linear;
+            }
+
+            &.label {
+                display: none;
+                margin-left: 10px;
+                color: map-get($colors, white);
+                font-size: 16px;
+                font-family: $secondary-font;
+                font-weight: 600;
+
+                @media screen and (min-width: 1008px) {
+                    display: block;
+                }
+            }
+        }
+
+        &:hover span.icon {
+            color: map-get($colors, dark);
+        }
+    }
+
+    & > a.toggler {
+        & > span.icon {
+            font-size: 32px;
+        }
+    }
+
+   & > nav {
+        margin-top: 20px;
+    }
+}

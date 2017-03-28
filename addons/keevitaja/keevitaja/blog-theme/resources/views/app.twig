@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <title>{{ template.meta_title }}</title>
+    <meta name="description" content="{{ template.meta_description }}">
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,600|Heebo:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ mix('/compiled/app.css') }}">
+</head>
+<body>
+    <div class="app">
+        {% include 'theme::partials.header' %}
+
+        {% block body %}{% endblock %}
+
+        <aside>
+            <div class="container"></div>
+        </aside>
+    </div>
+
+    <script src="{{ mix('/compiled/app.js') }}"></script>
+</body>
+</html>

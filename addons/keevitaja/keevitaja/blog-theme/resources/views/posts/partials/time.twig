@@ -1,0 +1,3 @@
+<time datetime="{{ post.publish_at.iso }}">
+    {{ post.publish_at.format(config_get('streams::datetime.date_format')) }}
+</time>
