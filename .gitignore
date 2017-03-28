@@ -9,8 +9,5 @@ composer.lock
 /node_modules
 /bower_components
 /public/compiled/*
-!/public/compiled
 /public/fonts/*
-!/public/fonts
 /public/images/*
-!/public/images
