@@ -8,6 +8,7 @@ composer.lock
 /coverage
 /node_modules
 /bower_components
+/public/mix-manifest.json
 /public/compiled/*
 /public/fonts/*
 /public/images/*
