@@ -12,6 +12,7 @@
 
 html {
   font-family: $primary-font; /* 1 */
+  font-size: $font-size;
   line-height: 1.625; /* 2 */
   -ms-text-size-adjust: 100%; /* 3 */
   -webkit-text-size-adjust: 100%; /* 3 */
@@ -90,8 +91,8 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: $monospace-font; /* 1 */
+  font-size: $font-size; /* 2 */
 }
 
 /* Text-level semantics
@@ -154,8 +155,8 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: $monospace-font; /* 1 */
+  font-size: $font-size; /* 2 */
 }
 
 /**
@@ -197,11 +198,11 @@ sup {
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -rhythm(0.25);
 }
 
 sup {
-  top: -0.5em;
+  top: -rhythm(0.5);
 }
 
 /* Embedded content
@@ -254,9 +255,9 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: sans-serif; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
+  font-family: $secondary-font; /* 1 */
+  font-size: $font-size; /* 1 */
+  line-height: 1.25; /* 1 */
   margin: 0; /* 2 */
 }
 

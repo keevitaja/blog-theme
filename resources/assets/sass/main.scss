@@ -1,0 +1,8 @@
+main > footer {
+    padding-bottom: 20px;
+    font-size: 13px;
+
+    & > a {
+        margin-right: rhythm(0.5);
+    }
+}
