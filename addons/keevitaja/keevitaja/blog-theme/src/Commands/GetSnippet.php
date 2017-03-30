@@ -12,7 +12,7 @@ class GetSnippet
 
     protected $key;
 
-    public function __construct($slug, $language = 'php', $key = 'post')
+    public function __construct($slug, $language = 'markup', $key = 'post')
     {
         $this->slug = $slug;
         $this->language = $language;

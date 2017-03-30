@@ -27,13 +27,13 @@ div.app {
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        max-width: 768px;
         min-width: 0;
 
         @media screen and (max-width: 639px) {
             margin-left: 50px;
         }
 
-        max-width: 768px;
         padding: rhythm(0.5) rhythm(0.5) 0 rhythm(0.5);
         box-sizing: border-box;
 
