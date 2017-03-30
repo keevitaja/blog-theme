@@ -1,16 +1,16 @@
 $primary-font: Heebo, sans-serif;
 $secondary-font: Muli, sans-serif;
-$monospace-font: monospace;
+$monospace-font: 'Source Code Pro', monospace;
 $font-size: 17px;
 
 $rhythm: 20px;
 
 $colors: (
-    brand: #FB503B,
-    inverse: darken(#5E5E5E, 20%),
+    brand: #fb503b,
+    inverse: #2b2b2b,
     light: #fbf9f8,
     highlight: #e6e4e3,
     font: #4d4c4c,
-    white: #fff,
+    white: #ffffff,
     dark: #b3b1b1
 );
