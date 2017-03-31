@@ -5,14 +5,12 @@
         </a>
 
         <nav class="main-nav">
-            <a class="item" href="#">
-                <span class="icon icon-twitter"></span>
-                <span class="label">Twitter</span>
-            </a>
-            <a class="item" href="#">
-                <span class="icon icon-github"></span>
-                <span class="label">Github</span>
-            </a>
+            {% for link in links('header').get() %}
+                <a target="{{ link.target }}" class="item" href="{{ link.url }}">
+                    <span class="{{ link.class }}"></span>
+                    <span class="label">{{ link.title }}</span>
+                </a>
+            {% endfor %}
         </nav>
     </div>
 </header>

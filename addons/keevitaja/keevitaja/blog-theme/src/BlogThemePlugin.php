@@ -17,7 +17,10 @@ class BlogThemePlugin extends Plugin
             }),
             new Twig_SimpleFunction('snippet', function($slug, $language = 'php', $key = 'post') {
                 return dispatch(new GetSnippet($slug, $language, $key));
-            }, ['is_safe' => ['html']])
+            }, ['is_safe' => ['html']]),
+            new Twig_SimpleFunction('dd', function($variable) {
+                return dd($variable);
+            }),
         ];
     }
 }
