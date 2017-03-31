@@ -29,7 +29,7 @@ div.app > header > div.container {
 
             &.label {
                 display: none;
-                margin-left: rhythm(0.5);
+                margin-left: rhythm(1);
                 color: map-get($colors, white);
                 font-size: 15px;
                 font-family: $primary-font;
