@@ -1,6 +1,7 @@
 body {
     background-color: map-get($colors, light);
     color: map-get($colors, font);
+    letter-spacing: 0.03em;
 }
 
 a {
@@ -14,4 +15,9 @@ a {
     &:focus {
         outline: none;
     }
+}
+
+::selection {
+    background: map-get($colors, brand);
+    color: map-get($colors, white);
 }

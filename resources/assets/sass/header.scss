@@ -31,9 +31,9 @@ div.app > header > div.container {
                 display: none;
                 margin-left: rhythm(0.5);
                 color: map-get($colors, white);
-                font-size: 16px;
-                font-family: $secondary-font;
-                font-weight: 600;
+                font-size: 15px;
+                font-family: $primary-font;
+                font-weight: bold;
 
                 @media screen and (min-width: 1008px) {
                     display: block;
