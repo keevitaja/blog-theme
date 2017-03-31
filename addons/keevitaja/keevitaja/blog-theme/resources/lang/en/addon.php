@@ -9,5 +9,6 @@ return [
     ],
     'blog' => [
         'more' => 'Continue reading ...'
-    ]
+    ],
+    'pyrocms' => 'Proudly hosted by :link'
 ];

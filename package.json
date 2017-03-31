@@ -11,5 +11,9 @@
     "cross-env": "^3.2.3",
     "laravel-mix": "^0.8.3",
     "normalize-scss": "^6.0.0"
+  },
+  "dependencies": {
+    "perfect-scrollbar": "^0.6.16",
+    "prismjs": "^1.6.0"
   }
 }

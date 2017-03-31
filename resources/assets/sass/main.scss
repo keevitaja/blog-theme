@@ -1,8 +1,13 @@
-main > footer {
-    padding-bottom: 20px;
-    font-size: 13px;
+main {
+    position: relative;
+    height: 100vh;
 
-    & > a {
-        margin-right: rhythm(0.5);
+    footer {
+        padding-bottom: 20px;
+        font-size: 13px;
+
+        & > a {
+            margin-right: rhythm(0.5);
+        }
     }
 }

@@ -3,7 +3,7 @@
 {% block body %}
     <main>
         {% for post in entries('posts').recent().paginate() %}
-            <article>
+            <article {% if loop.last %} class="last" {% endif %}>
                 <aside class="post">
                     {% if post.category %}
                         {{ html_link(post.category.route('view'), post.category.name) }}
@@ -25,5 +25,9 @@
         {% endfor %}
 
         {{ posts.links|raw }}
+
+        <footer>
+            {{ trans('theme::addon.pyrocms', {'link': '<a target="_blank" href="http://pyrocms.com">PyroCMS</a>'})|raw }}
+        </footer>
     </main>
 {% endblock %}
