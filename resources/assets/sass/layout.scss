@@ -27,7 +27,7 @@ div.app {
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        max-width: 768px;
+        width: 768px;
         min-width: 0;
 
         @media screen and (max-width: 639px) {

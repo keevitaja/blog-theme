@@ -10,5 +10,5 @@ return [
     'blog' => [
         'more' => 'Continue reading ...'
     ],
-    'pyrocms' => 'Proudly hosted by :link'
+    'footer' => 'Proudly hosted by <a target="_blank" href="http://pyrocms.com">PyroCMS</a>'
 ];
