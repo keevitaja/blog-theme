@@ -58,6 +58,7 @@ article {
             font-family: $monospace-font;
             font-size: 15.5px;
             letter-spacing: 0;
+            color: map-get($colors, inverse);
         }
     }
 }
