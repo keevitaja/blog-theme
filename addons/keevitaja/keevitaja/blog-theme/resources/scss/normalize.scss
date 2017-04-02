@@ -11,7 +11,7 @@
  */
 
 html {
-  font-family: $primary-font; /* 1 */
+  font-family: $font-face-sans; /* 1 */
   font-size: $font-size;
   line-height: 1.625; /* 2 */
   -ms-text-size-adjust: 100%; /* 3 */
@@ -91,7 +91,7 @@ hr {
  */
 
 pre {
-  font-family: $monospace-font; /* 1 */
+  font-family: $font-face-monospace; /* 1 */
   font-size: $font-size; /* 2 */
 }
 
@@ -155,7 +155,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: $monospace-font; /* 1 */
+  font-family: $font-face-monospace; /* 1 */
   font-size: $font-size; /* 2 */
 }
 
@@ -255,7 +255,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: $primary-font; /* 1 */
+  font-family: $font-face-sans; /* 1 */
   font-size: $font-size; /* 1 */
   line-height: 1.25; /* 1 */
   margin: 0; /* 2 */

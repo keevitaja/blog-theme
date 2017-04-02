@@ -1,0 +1,23 @@
+body {
+    background-color: map-get($colors-theme, background);
+    color: map-get($colors-theme, color);
+    letter-spacing: 0.03em;
+}
+
+a {
+    color: map-get($colors-theme, link);
+    text-decoration: none;
+
+    &:hover {
+        color: map-get($colors-theme, hover);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+::selection {
+    background: map-get($colors-theme, selection-background);
+    color: map-get($colors-theme, selection-text);
+}

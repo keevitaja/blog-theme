@@ -1,0 +1,45 @@
+$primary-font: 'Encode Sans', sans-serif;
+$monospace-font: 'Ubuntu Mono', monospace;
+$font-size: 17px;
+
+$font-face-sans: 'Encode Sans', sans-serif;
+$font-face-monospace: 'Ubuntu Mono', monospace;
+
+$rhythm: 20px;
+
+$colors: (
+    brand: #fb503b,
+    inverse: #2b2b2b,
+    light: #fbf9f8,
+    highlight: #f5f3f2,
+    font: #4d4c4c,
+    white: #ffffff,
+    dark: #b3b1b1
+);
+
+$colors-theme: (
+    background: map-get($colors, light),
+    color: map-get($colors, font),
+    link: map-get($colors, brand),
+    hover: map-get($colors, text),
+    selection-background: map-get($colors, brand),
+    selection-text: map-get($colors, white),
+    header-background: map-get($colors, brand),
+    header-stripe: map-get($colors, inverse),
+    header-link: map-get($colors, white),
+    header-hover: map-get($colors, dark)
+);
+
+$colors-highlight: (
+    font: map-get($colors, inverse),
+    background: map-get($colors, highlight),
+    selection: map-get($colors, brand),
+    punctuation: map-get($colors, inverse),
+    comment: #778899,
+    property: #905,
+    selector: #690,
+    operator: #a67f59,
+    atrule: #07a,
+    function: #8e6a2c,
+    regex: map-get($colors, brand)
+);

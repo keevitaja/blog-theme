@@ -76,7 +76,8 @@
         "anomaly/robots-extension": "~2.1.0",
         "anomaly/sitemap-extension": "~2.1.0",
         "pyrocms/starter-theme": "~1.0.0",
-        "pyrocms/accelerant-theme": "~1.0.0"
+        "pyrocms/accelerant-theme": "~1.0.0",
+        "scrivo/highlight.php": "^9.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

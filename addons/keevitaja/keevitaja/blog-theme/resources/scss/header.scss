@@ -1,0 +1,75 @@
+div.app > header {
+    & > div.container {
+        background-image: linear-gradient(
+            to right,
+            map-get($colors-theme, header-stripe),
+            map-get($colors-theme, header-stripe) 50px,
+            map-get($colors-theme, header-background) 50px,
+            map-get($colors-theme, header-background) 240px
+        );
+
+        a.item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: rhythm(2);
+            text-decoration: none;
+
+            & > i.fa {
+                display: inline-block;
+                width: 50px;
+                min-width: 50px;
+                color: map-get($colors-theme, header-link);
+                text-align: center;
+                font-size: 24px;
+                transition: color .1s linear;
+            }
+
+            & > span {
+                display: block;
+
+                &.label {
+                    display: none;
+                    margin-left: rhythm(1);
+                    color: map-get($colors-theme, header-link);
+                    font-size: 15px;
+                    font-weight: bold;
+
+                    @media screen and (min-width: 1008px) {
+                        display: block;
+                    }
+                }
+            }
+
+            &:hover i.fa {
+                color: map-get($colors-theme, header-hover);
+            }
+        }
+
+        & > a.toggler {
+            display: block;
+            width: 50px;
+            box-sizing: border-box;
+            padding: 10px;
+
+            & > span {
+                display: block;
+                height: 7px;
+                background-color: map-get($colors-theme, header-link);
+                transition: background-color .1s linear;
+
+                &:nth-child(2) {
+                    margin: 2px 0;
+                }
+            }
+
+            &:hover span {
+                background-color: map-get($colors-theme, header-hover);
+            }
+        }
+
+       & > nav {
+            margin-top: rhythm(1);
+        }
+    }
+}

@@ -1,5 +1,3 @@
-import ps from 'perfect-scrollbar'
-
 const toggleLabels = (display)=> {
     document.querySelectorAll('div.app > header nav span.label').forEach((el)=> {
         el.style.display = display
@@ -22,10 +20,4 @@ document.querySelector('.toggler').addEventListener('click', (ev)=> {
     }
 })
 
-let main = document.querySelector('main')
-
-ps.initialize(main)
-
-
-
-
+Ps.initialize(document.querySelector('main'))

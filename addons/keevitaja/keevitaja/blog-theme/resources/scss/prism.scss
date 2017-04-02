@@ -7,10 +7,12 @@
 
 code[class*="language-"],
 pre[class*="language-"] {
-	color: black;
+	color: map-get($colors-highlight, font);
 	background: none;
 	text-shadow: 0 1px white;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: $font-face-monospace;
+	font-size: 15px;
+	letter-spacing: 0;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -31,13 +33,13 @@ pre[class*="language-"] {
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
 	text-shadow: none;
-	background: map-get($colors, brand);
+	background: map-get($colors-highlight, selection);
 }
 
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
 code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	text-shadow: none;
-	background: map-get($colors, brand);
+	background: map-get($colors-highlight, selection);
 }
 
 @media print {
@@ -50,19 +52,19 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
-	margin: .5em 0;
+	margin: rhythm(2) 0;
 	overflow: auto;
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #f5f3f2;
+	background: map-get($colors-highlight, background);
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-	padding: .1em;
-	border-radius: .3em;
+	padding: rhythm(0.5);
+	border-radius: 0;
 	white-space: normal;
 }
 
@@ -70,15 +72,11 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: slategray;
+	color: map-get($colors-highlight, comment);
 }
 
 .token.punctuation {
-	color: #999;
-}
-
-.namespace {
-	opacity: .7;
+	color: map-get($colors-highlight, punctuation);
 }
 
 .token.property,
@@ -88,7 +86,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: #905;
+	color: map-get($colors-highlight, property);
 }
 
 .token.selector,
@@ -97,7 +95,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: #690;
+	color: map-get($colors-highlight, selector);
 }
 
 .token.operator,
@@ -105,31 +103,31 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-	color: #a67f59;
+	color: map-get($colors-highlight, operator);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: #07a;
+	color: map-get($colors-highlight, atrule);
 }
 
 .token.function {
-	color: map-get($colors, misc);
+	color: map-get($colors-highlight, function);
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-	color: map-get($colors, brand);
+	color: map-get($colors-highlight, regex);
 }
 
 .token.important,
 .token.bold {
-	font-weight: bold;
+	font-weight: normal;
 }
 .token.italic {
-	font-style: italic;
+	font-style: normal;
 }
 
 .token.entity {

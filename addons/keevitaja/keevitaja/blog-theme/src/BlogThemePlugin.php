@@ -12,9 +12,6 @@ class BlogThemePlugin extends Plugin
     public function getFunctions()
     {
         return [
-            new Twig_SimpleFunction('mix', function($path, $manifestDirectory = '') {
-                return dispatch(new GetMix($path, $manifestDirectory));
-            }),
             new Twig_SimpleFunction('snippet', function($slug, $language = 'php', $key = 'post') {
                 return dispatch(new GetSnippet($slug, $language, $key));
             }, ['is_safe' => ['html']]),

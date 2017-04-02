@@ -1,13 +1,15 @@
 <header>
     <div class="container">
-        <a class="item toggler" href="#">
-            <span class="icon icon-menu"></span>
+        <a class="toggler" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
         </a>
 
         <nav class="main-nav">
             {% for link in links('header').get() %}
                 <a target="{{ link.target }}" class="item" href="{{ link.url }}">
-                    <span class="{{ link.class }}"></span>
+                    <i class="{{ link.class }}" aria-hidden="true"></i>
                     <span class="label">{{ link.title }}</span>
                 </a>
             {% endfor %}

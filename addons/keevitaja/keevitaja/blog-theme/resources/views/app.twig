@@ -9,7 +9,8 @@
     <title>{{ template.meta_title }}</title>
     <meta name="description" content="{{ template.meta_description }}">
 
-    <link rel="stylesheet" href="{{ mix('/compiled/app.css') }}">
+    {{ asset_add('app.css', 'theme::scss/app.scss', ['min', 'live']) }}
+    {{ asset_style('app.css') }}
 </head>
 <body>
     <div class="app">
@@ -22,7 +23,9 @@
         </aside>
     </div>
 
-    <script src="{{ asset('assets/prism.js') }}"></script>
-    <script src="{{ mix('/compiled/app.js') }}"></script>
+    {{ asset_add('app.js', 'theme::js/prism.js') }}
+    {{ asset_add('app.js', 'theme::js/perfect-scrollbar.min.js') }}
+    {{ asset_add('app.js', 'theme::js/app.js', ['min', 'live']) }}
+    {{ asset_script('app.js') }}
 </body>
 </html>

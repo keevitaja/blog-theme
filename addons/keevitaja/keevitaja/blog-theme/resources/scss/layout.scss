@@ -5,6 +5,7 @@ div.app {
     & > header {
         @media screen and (max-width: 639px) {
             position: fixed;
+            z-index: 1000;
         }
 
         width: 50px;
@@ -57,7 +58,7 @@ div.app {
             position: fixed;
             width: 100%;
             height: 100vh;
-            background: url('../images/computer-lab.jpg') no-repeat;
+            background: url({{ asset_path('theme::img/computer-lab.jpg') }}) no-repeat;
         }
     }
 }
