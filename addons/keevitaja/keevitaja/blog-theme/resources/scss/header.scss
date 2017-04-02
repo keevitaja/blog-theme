@@ -15,18 +15,18 @@ div.app > header {
             height: rhythm(2);
             text-decoration: none;
 
-            & > i.fa {
-                display: inline-block;
-                width: 50px;
-                min-width: 50px;
-                color: map-get($colors-theme, header-link);
-                text-align: center;
-                font-size: 24px;
-                transition: color .1s linear;
-            }
-
             & > span {
                 display: block;
+
+                &.icon {
+                    display: inline-block;
+                    width: 50px;
+                    min-width: 50px;
+                    color: map-get($colors-theme, header-link);
+                    text-align: center;
+                    font-size: 24px;
+                    transition: color .1s linear;
+                }
 
                 &.label {
                     display: none;
@@ -41,7 +41,7 @@ div.app > header {
                 }
             }
 
-            &:hover i.fa {
+            &:hover span.icon {
                 color: map-get($colors-theme, header-hover);
             }
         }

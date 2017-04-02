@@ -9,7 +9,7 @@
         <nav class="main-nav">
             {% for link in links('header').get() %}
                 <a target="{{ link.target }}" class="item" href="{{ link.url }}">
-                    <i class="{{ link.class }}" aria-hidden="true"></i>
+                    <span class="{{ link.class }}"></span>
                     <span class="label">{{ link.title }}</span>
                 </a>
             {% endfor %}
