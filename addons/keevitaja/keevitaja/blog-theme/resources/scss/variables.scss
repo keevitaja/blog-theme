@@ -43,3 +43,16 @@ $colors-highlight: (
     function: #8e6a2c,
     regex: map-get($colors, brand)
 );
+
+$images: (
+  default: (
+    0: (
+      columns: 1,
+      gutter: 0
+    ),
+    480: (
+      columns: 2,
+      gutter: 10px
+    )
+  )
+);
