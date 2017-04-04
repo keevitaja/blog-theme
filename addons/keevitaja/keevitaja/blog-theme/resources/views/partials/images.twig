@@ -1,5 +1,7 @@
-<div class="images images-type-{{ type }}">
+<div class="images-type-{{ type }}">
     {% for image in images %}
-        {{ image.image.url }}
+        <a class="image" href="">
+            <img src="{{ image }}" alt="">
+        </a>
     {% endfor %}
 </div>

@@ -45,14 +45,20 @@ $colors-highlight: (
 );
 
 $images: (
-  default: (
-    0: (
-      columns: 1,
-      gutter: 0
-    ),
-    480: (
-      columns: 2,
-      gutter: 10px
+    default: (
+        0: (
+            columns: 1,
+            gutter: 10px,
+            max: 439
+        ),
+        480: (
+            columns: 2,
+            gutter: 10px,
+            max: 799
+        ),
+        640: (
+            columns: 3,
+            gutter: 10px
+        )
     )
-  )
 );

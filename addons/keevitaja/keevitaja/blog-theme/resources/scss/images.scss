@@ -1,31 +1,44 @@
+@mixin rules($breakpoint, $config) {
+    $columns: map-get($config, columns);
+    $dividers: map-get($config, columns) - 1;
+    $gutter: map-get($config, gutter);
+    $nth: '#{$columns}n+#{$columns}';
+
+    margin-bottom: -$gutter;
+
+    .image {
+        display: block;
+        float: left;
+        width: calc((100% - #{$dividers} * #{$gutter}) / #{$columns});
+        margin-right: $gutter;
+        margin-bottom: $gutter;
+        text-decoration: none;
+
+        &:nth-child(#{$nth}) {
+            margin-right: 0;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
 @each $type, $setting in $images {
     .images-type-#{$type} {
         @include clearfix;
 
         @each $breakpoint, $config in $setting {
-            @media screen and (min-width: #{$breakpoint}px) {
-                $columns: map-get($config, columns);
-                $dividers: map-get($config, columns) - 1;
-                $gutter: map-get($config, gutter);
+            $max: map-get($config, max);
 
-                margin-bottom: -$gutter;
-
-                .image {
-                    display: block;
-                    float: right;
-                    width: calc((100% - #{$dividers} * #{$gutter}) / #{$columns});
-                    margin-right: $gutter;
-                    margin-bottom: $gutter;
-                    text-decoration: none;
-
-                    &::nth-child(#{$columns}n+#{$columns}) {
-                        margin-right: 0;
-                    }
-
-                    img {
-                        display: block;
-                        width: 100%;
-                    }
+            @if ($max) {
+                @media screen and (min-width: #{$breakpoint}px) and (max-width: #{$max}px) {
+                    @include rules($breakpoint, $config);
+                }
+            } @else {
+                @media screen and (min-width: #{$breakpoint}px) {
+                    @include rules($breakpoint, $config);
                 }
             }
         }

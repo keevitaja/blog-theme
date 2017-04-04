@@ -15,40 +15,44 @@ class ImageRepository
 
     protected $template;
 
-    public function __construct(ViewTemplate $template)
+    protected $images = [];
+
+    protected $config;
+
+    public function __construct(ViewTemplate $template, $type, $key)
     {
         $this->template = $template;
-    }
-
-    public function type($type, $key)
-    {
         $this->type = $type;
         $this->key = $key;
-
-        return $this;
+        $this->config = config('keevitaja.theme.blog::addon.images');
     }
 
-    public function local($slugs = [])
+    public function local(...$slugs)
     {
-        $this->slugs = $slugs;
+        $files = $this->template->get($this->key)->images->whereIn('slug', $slugs);
 
-        return $this;
+        foreach ($files as $file) {
+            $this->images[] = $file->image->image;
+        }
+
+        return $this->get();
     }
 
     public function get()
     {
-        $images = $this->template->get($this->key)->images->whereIn('slug', $this->slugs);
+        $images = [];
 
-        //dd($images->first()->image->image->resize(200)->url());
+        foreach ($this->config[$this->type] as $breakpoint => $config) {
+            list($w, $h, $t) = $config;
+
+            foreach ($this->images as $image) {
+                $images[] = $image->{$t}($w, $h)->url();
+            }
+        }
 
         return view('keevitaja.theme.blog::partials.images', [
             'type' => $this->type,
             'images' => $images
         ])->render();
-    }
-
-    public function __toString()
-    {
-        return $this->get();
     }
 }

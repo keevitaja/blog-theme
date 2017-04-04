@@ -16,8 +16,8 @@ class BlogThemePlugin extends Plugin
                 return dispatch(new GetSnippet($slug, $language, $key));
             }, ['is_safe' => ['html']]),
             new Twig_SimpleFunction('images', function($type, $key = 'post') {
-                return app(ImageRepository::class)->type($type, $key);
-            }, ['is_safe' => ['html']]),
+                return app(ImageRepository::class, ['type' => $type, 'key' => $key]);
+            }),
             new Twig_SimpleFunction('dd', function($variable) {
                 return dd($variable);
             }),
