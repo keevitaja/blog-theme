@@ -1,3 +1,7 @@
+/*
+ * Thanks to https://pyrocms.slack.com/team/adidiego
+ */
+
 @mixin rules($breakpoint, $config) {
     $columns: map-get($config, columns);
     $dividers: map-get($config, columns) - 1;
