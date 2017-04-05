@@ -6,7 +6,7 @@ class CacheManager
 {
     public function remember($key, $callback)
     {
-        $config = config('keevitaja.theme.blog::addon');
+        $config = config('keevitaja.theme.blog::addon.cache');
 
         if ( ! $config['enabled'] || config('app.debug')) return $callback();
 

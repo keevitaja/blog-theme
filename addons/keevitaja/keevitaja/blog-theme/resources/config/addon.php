@@ -6,9 +6,11 @@ return [
         'enabled' => env('KEEVITAJA_BLOG_CACHE_ENABLED', true),
     ],
     'images' => [
-        'default' => [
-            'full' => [1152, null, 'resize'],
-            'thumb' => [480, 240, 'fit'],
+        'types' => [
+            'default' => [
+                'full' => [1152, null, 'resize'],
+                'thumb' => [480, 240, 'fit'],
+            ]
         ]
     ]
 ];

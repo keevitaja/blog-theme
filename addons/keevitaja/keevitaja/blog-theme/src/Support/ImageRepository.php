@@ -9,53 +9,83 @@ class ImageRepository
 {
     protected $type;
 
-    protected $key;
-
-    protected $slugs;
-
     protected $template;
-
-    protected $images = [];
 
     protected $config;
 
-    public function __construct(ViewTemplate $template, $type, $key)
+    protected $container = [];
+
+    public function __construct(ViewTemplate $template, $type)
     {
         $this->template = $template;
         $this->type = $type;
-        $this->key = $key;
         $this->config = config('keevitaja.theme.blog::addon.images');
     }
 
-    public function local(...$slugs)
+    public function post(...$slugs)
     {
-        $files = $this->template->get($this->key)->images->whereIn('slug', $slugs);
+        return $this->template($slugs, 'post');
+    }
 
-        foreach ($files as $file) {
-            $this->images[] = $file->image->image;
-        }
+    public function template(array $slugs, $key)
+    {
+        $this->container['template'][$key] = $slugs;
 
-        return $this->get();
+        return $this;
     }
 
     public function get()
     {
-        $images = [];
-
-        $config = $this->config[$this->type];
-        $full = $config['full'];
-        $thumb = $config['thumb'];
-
-        foreach ($this->images as $image) {
-            $images[] = [
-                'full' => $image->{$full[2]}($full[0], $full[1])->url(),
-                'thumb' => $image->{$thumb[2]}($thumb[0], $thumb[1])->url(),
-            ];
-        }
+        $images = $this->getImages();
 
         return view('keevitaja.theme.blog::partials.images', [
             'type' => $this->type,
             'images' => $images
         ])->render();
+    }
+
+    protected function getImages()
+    {
+        $rawImages = $this->buildTemplateImages();
+
+        $images = [];
+
+        foreach ($rawImages as $image) {
+            $images[] = $this->renderImage($image);
+        }
+
+        return $images;
+    }
+
+    protected function renderImage($image)
+    {
+        $config = $this->config['types'][$this->type];
+
+        return [
+            'full' => $image['image']->{$config['full'][2]}($config['full'][0], $config['full'][1])->url(),
+            'thumb' => $image['image']->{$config['thumb'][2]}($config['thumb'][0], $config['thumb'][1])->url(),
+            'title' => $image['title'],
+        ];
+    }
+
+    protected function buildTemplateImages($images = [])
+    {
+        foreach ($this->container['template'] ?? [] as $key => $slugs) {
+            $files = $this->template->get($key)->images->whereIn('slug', $slugs);
+
+            foreach ($files as $file) {
+                $images[] = [
+                    'image' => $file->image->image,
+                    'title' => $file->title->value ?? ''
+                ];
+            }
+        }
+
+        return $images;
+    }
+
+    public function __toString()
+    {
+        return $this->get();
     }
 }

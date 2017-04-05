@@ -1,8 +1,8 @@
 <div class="images-container">
     <div class="images-type-{{ type }}">
         {% for image in images %}
-            <a class="image" href="{{ image.full }}">
-                <img src="{{ image.thumb }}" alt="">
+            <a class="image" href="{{ image.full }}" title="{{ image.title }}">
+                <img src="{{ image.thumb }}" alt="{{ image.title }}">
             </a>
         {% endfor %}
     </div>
