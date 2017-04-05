@@ -21,3 +21,4 @@ document.querySelector('.toggler').addEventListener('click', (ev)=> {
 })
 
 Ps.initialize(document.querySelector('main'))
+baguetteBox.run('.images-container > div');

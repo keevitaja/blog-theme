@@ -42,12 +42,15 @@ class ImageRepository
     {
         $images = [];
 
-        foreach ($this->config[$this->type] as $breakpoint => $config) {
-            list($w, $h, $t) = $config;
+        $config = $this->config[$this->type];
+        $full = $config['full'];
+        $thumb = $config['thumb'];
 
-            foreach ($this->images as $image) {
-                $images[] = $image->{$t}($w, $h)->url();
-            }
+        foreach ($this->images as $image) {
+            $images[] = [
+                'full' => $image->{$full[2]}($full[0], $full[1])->url(),
+                'thumb' => $image->{$thumb[2]}($thumb[0], $thumb[1])->url(),
+            ];
         }
 
         return view('keevitaja.theme.blog::partials.images', [

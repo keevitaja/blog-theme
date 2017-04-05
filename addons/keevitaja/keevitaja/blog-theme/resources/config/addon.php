@@ -7,9 +7,8 @@ return [
     ],
     'images' => [
         'default' => [
-            0 => [480, 240, 'crop'],
-            480 => [320, 160, 'crop'],
-            800 => [320, 160, 'crop'],
+            'full' => [1152, null, 'resize'],
+            'thumb' => [480, 240, 'fit'],
         ]
     ]
 ];
