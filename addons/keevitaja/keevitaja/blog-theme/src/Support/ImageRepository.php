@@ -2,22 +2,33 @@
 
 namespace Keevitaja\BlogTheme\Support;
 
-use Anomaly\Streams\Platform\Support\Decorator;
+use Anomaly\FilesModule\File\FileModel;
 use Anomaly\Streams\Platform\View\ViewTemplate;
+use Keevitaja\BlogTheme\Support\CacheManager;
 
 class ImageRepository
 {
-    protected $type;
-
     protected $template;
+
+    protected $file;
+
+    protected $type;
 
     protected $config;
 
-    protected $container = [];
+    protected $cache;
 
-    public function __construct(ViewTemplate $template, $type)
+    protected $container = [
+        'template' => [],
+        'files' => [],
+        'folders' => []
+    ];
+
+    public function __construct(ViewTemplate $template, FileModel $file, CacheManager $cache, $type)
     {
         $this->template = $template;
+        $this->file = $file;
+        $this->cache = $cache;
         $this->type = $type;
         $this->config = config('keevitaja.theme.blog::addon.images');
     }
@@ -25,6 +36,13 @@ class ImageRepository
     public function post(...$slugs)
     {
         return $this->template($slugs, 'post');
+    }
+
+    public function files(...$ids)
+    {
+        $this->container['files'] = $ids;
+
+        return $this;
     }
 
     public function template(array $slugs, $key)
@@ -36,7 +54,11 @@ class ImageRepository
 
     public function get()
     {
-        $images = $this->getImages();
+        $key = 'keevitaja.blog.'.serialize($this->container);
+
+        $images = $this->cache->remember($key, function() {
+            return $this->getImages();
+        });
 
         return view('keevitaja.theme.blog::partials.images', [
             'type' => $this->type,
@@ -47,6 +69,7 @@ class ImageRepository
     protected function getImages()
     {
         $rawImages = $this->buildTemplateImages();
+        $rawImages = $this->buildFileImages($rawImages);
 
         $images = [];
 
@@ -70,15 +93,31 @@ class ImageRepository
 
     protected function buildTemplateImages($images = [])
     {
-        foreach ($this->container['template'] ?? [] as $key => $slugs) {
+        foreach ($this->container['template'] as $key => $slugs) {
             $files = $this->template->get($key)->images->whereIn('slug', $slugs);
+            $slugs = $this->config['slugs'];
 
             foreach ($files as $file) {
                 $images[] = [
-                    'image' => $file->image->image,
-                    'title' => $file->title->value ?? ''
+                    'image' => $file->{$slugs['image']}->image,
+                    'title' => $file->{$slugs['title']}->value ?? ''
                 ];
             }
+        }
+
+        return $images;
+    }
+
+    protected function buildFileImages($images = [])
+    {
+        $files = $this->file->whereIn('id', $this->container['files'])->get();
+        $slugs = $this->config['slugs'];
+
+        foreach ($files as $file) {
+            $images[] = [
+                'image' => $file->image(),
+                'title' => $file->{$slugs['title']} ?? ''
+            ];
         }
 
         return $images;
