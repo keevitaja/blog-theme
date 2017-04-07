@@ -1,6 +1,6 @@
 <?php
 
-namespace Keevitaja\BlogTheme\Support;
+namespace Keevitaja\BlogTheme;
 
 class CacheManager
 {

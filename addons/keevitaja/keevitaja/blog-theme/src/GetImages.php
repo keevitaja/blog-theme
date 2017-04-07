@@ -1,12 +1,12 @@
 <?php
 
-namespace Keevitaja\BlogTheme\Support;
+namespace Keevitaja\BlogTheme;
 
 use Anomaly\FilesModule\File\FileModel;
 use Anomaly\Streams\Platform\View\ViewTemplate;
-use Keevitaja\BlogTheme\Support\CacheManager;
+use Keevitaja\BlogTheme\CacheManager;
 
-class ImageRepository
+class GetImages
 {
     protected $template;
 
@@ -84,27 +84,23 @@ class ImageRepository
 
     protected function folders(...$args)
     {
-        $images = [];
-
         $files = $this->file->whereHas('folder', function($q) use($args) {
             $q->whereIn('id', $args);
         })->get();
 
-        foreach($files as $file) {
-            $images[] = [
-                'image' => $file->image(),
-                'title' => $file->entry ? $file->entry->title : ''
-            ];
-        }
-
-        return $images;
+        return $this->rawImages($files);
     }
 
     protected function files($args)
     {
+        return $this->rawImages($this->file->whereIn('id', $args)->get());
+    }
+
+    protected function rawImages($files)
+    {
         $images = [];
 
-        foreach($this->file->whereIn('id', $args)->get() as $file) {
+        foreach($files as $file) {
             $images[] = [
                 'image' => $file->image(),
                 'title' => $file->entry ? $file->entry->title : ''

@@ -1,6 +1,6 @@
 <?php
 
-namespace Keevitaja\BlogTheme\Observers;
+namespace Keevitaja\BlogTheme;
 
 class ModelObserver
 {
