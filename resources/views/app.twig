@@ -9,8 +9,10 @@
     <title>{{ template.meta_title }}</title>
     <meta name="description" content="{{ template.meta_description }}">
 
-    {{ asset_add('vendor.css', 'theme::scss/vendor.scss') }}
+    {{ asset_add('vendor.css', 'theme::css/baguette.css') }}
+    {{ asset_add('vendor.css', 'theme::css/scrollbar.css') }}
     {{ asset_style('vendor.css') }}
+
     {{ asset_add('app.css', 'theme::scss/app.scss') }}
     {{ asset_style('app.css', ['min', 'live']) }}
 </head>
