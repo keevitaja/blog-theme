@@ -19,9 +19,6 @@ class BlogThemePlugin extends Plugin
             new Twig_SimpleFunction('images', function($type, $key = 'post') {
                 return app(GetImages::class, ['type' => $type, 'key' => $key]);
             }),
-            new Twig_SimpleFunction('navigation', function($menu = null) {
-                return app(GetNavigation::class, ['menu' => $menu]);
-            }),
             new Twig_SimpleFunction('dd', function($variable) {
                 return dd($variable);
             }),
