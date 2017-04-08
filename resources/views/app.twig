@@ -9,8 +9,10 @@
     <title>{{ template.meta_title }}</title>
     <meta name="description" content="{{ template.meta_description }}">
 
-    {{ asset_add('app.css', 'theme::scss/app.scss', ['live']) }}
-    {{ asset_style('app.css', ['min']) }}
+    {{ asset_add('vendor.css', 'theme::scss/vendor.scss') }}
+    {{ asset_style('vendor.css') }}
+    {{ asset_add('app.css', 'theme::scss/app.scss') }}
+    {{ asset_style('app.css', ['min', 'live']) }}
 </head>
 <body>
     <div class="app">
@@ -23,10 +25,12 @@
         </aside>
     </div>
 
-    {{ asset_add('app.js', 'theme::js/prism.js') }}
-    {{ asset_add('app.js', 'theme::js/perfect-scrollbar.min.js') }}
-    {{ asset_add('app.js', 'theme::js/baguetteBox.min.js') }}
-    {{ asset_add('app.js', 'theme::js/app.js', ['min', 'live']) }}
-    {{ asset_script('app.js') }}
+    {{ asset_add('vendor.js', 'theme::js/prism.js') }}
+    {{ asset_add('vendor.js', 'theme::js/perfect-scrollbar.min.js') }}
+    {{ asset_add('vendor.js', 'theme::js/baguetteBox.min.js') }}
+    {{ asset_script('vendor.js') }}
+
+    {{ asset_add('app.js', 'theme::js/app.js') }}
+    {{ asset_script('app.js', ['min', 'live']) }}
 </body>
 </html>
