@@ -9,9 +9,6 @@
         "issues": "https://github.com/keevitaja/blog-theme/issues",
         "source": "https://github.com/keevitaja/blog-theme"
     },
-    "require": {
-        "scrivo/highlight.php": "~9.0.0"
-    },
     "authors": [
         {
         "name": "Tanel Tammik",
