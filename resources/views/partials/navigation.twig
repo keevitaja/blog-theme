@@ -1,6 +1,6 @@
 <nav class="main-nav">
     {% for link in links('header').get() %}
-        <a target="{{ link.target }}" class="item {% if link.current %}current{% endif %}" href="{{ link.url }}">
+        <a target="{{ link.target }}" class="item {# {% if link.current %}current{% endif %} #}" href="{{ link.url }}">
             <span class="icon icon-{{ link.class }}"></span>
             <span class="label">{{ link.title }}</span>
         </a>
