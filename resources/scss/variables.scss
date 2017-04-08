@@ -19,7 +19,7 @@ $colors-theme: (
     background: map-get($colors, light),
     color: map-get($colors, font),
     link: map-get($colors, brand),
-    hover: map-get($colors, text),
+    hover: map-get($colors, font),
     selection-background: map-get($colors, brand),
     selection-text: map-get($colors, white),
     header-background: map-get($colors, brand),
