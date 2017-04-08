@@ -2,6 +2,7 @@
     "name": "keevitaja/blog-theme",
     "type": "streams-addon",
     "description": "Slick PyroCMS theme for a personal blog",
+    "keywords": ["pyrocms", "laravel", "theme", "blog"],
     "license": "MIT",
     "homepage": "https://github.com/keevitaja/blog-theme",
     "support": {
