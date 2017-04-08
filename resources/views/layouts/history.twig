@@ -13,7 +13,7 @@
                 <div class="posts">
                     {% for post in category.posts %}
                         <div class="post">
-                            <time>{{ post.publish_at.format(config_get('streams::datetime.date_format')) }}</time>
+                            <time>{{ post.publish_at.format('d.m.Y') }}</time>
                             <a href="{{ post.route('view') }}">{{ post.title }}</a>
                         </div>
                     {% endfor %}
