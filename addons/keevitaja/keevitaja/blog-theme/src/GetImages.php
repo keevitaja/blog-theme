@@ -56,7 +56,9 @@ class GetImages
 
         foreach ($this->container as $collection) {
             foreach ($collection as $method => $args) {
-                $images = array_merge($images, $this->{$method}($args));
+                if (method_exists($this, $method)) {
+                    $images = array_merge($images, $this->{$method}($args));
+                }
             }
         }
 

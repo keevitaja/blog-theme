@@ -1,9 +1,7 @@
-$primary-font: 'Encode Sans', sans-serif;
-$monospace-font: 'Ubuntu Mono', monospace;
-$font-size: 17px;
-
 $font-face-sans: 'Encode Sans', sans-serif;
 $font-face-monospace: 'Ubuntu Mono', monospace;
+
+$font-size: 17px;
 
 $rhythm: 20px;
 
@@ -14,7 +12,7 @@ $colors: (
     highlight: #f5f3f2,
     font: #4d4c4c,
     white: #ffffff,
-    dark: #b3b1b1
+    dark: #a6a4a4
 );
 
 $colors-theme: (
@@ -42,6 +40,19 @@ $colors-highlight: (
     atrule: #07a,
     function: #8e6a2c,
     regex: map-get($colors, brand)
+);
+
+$colors-article: (
+    title: map-get($colors, font),
+    title-hover: map-get($colors, brand),
+    blockquote-border: map-get($colors, brand),
+    blockquote-background: map-get($colors, highlight)
+);
+
+$colors-paginator: (
+    font: map-get($colors, white),
+    background: map-get($colors, dark),
+    hover: map-get($colors, brand)
 );
 
 $images: (

@@ -40,7 +40,11 @@ class GetSnippet
 
     protected function build()
     {
-        $code = $this->template->get($this->key)->snippets->where('slug', $this->slug)->first()->code->value;
+        $snippet = $this->template->get($this->key)->snippets->where('slug', $this->slug);
+
+        if ($snippet->count() == 0) return '';
+
+        $code = $snippet->first()->code->value;
 
         return $this->tagify($code);
     }

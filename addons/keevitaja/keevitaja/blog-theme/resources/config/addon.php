@@ -5,6 +5,7 @@ return [
         'expires' => env('KEEVITAJA_BLOG_CACHE_EXPIRES', 24 * 30),
         'enabled' => env('KEEVITAJA_BLOG_CACHE_ENABLED', true),
     ],
+    'disqus'      => env('KEEVITAJA_BLOG_DISQUS', 'keevitaja'),
     'images' => [
         'slugs' => [
             'image' => 'image',

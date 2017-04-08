@@ -15,6 +15,7 @@ article {
     }
 
     & > time {
+        display: block;
         padding-left: 2px;
         font-size: 13px;
     }
@@ -26,10 +27,10 @@ article {
         line-height: 1.3;
 
         & > a {
-            color: map-get($colors, font);
+            color: map-get($colors-article, title);
 
             &:hover {
-                color: map-get($colors, brand);
+                color: map-get($colors-article, title-hover);
             }
         }
     }
@@ -37,8 +38,8 @@ article {
     blockquote {
         margin: rhythm(2) 0;
         padding: rhythm(1) rhythm(1) rhythm(1) rhythm(1.5);
-        border-left: 5px solid map-get($colors, brand);
-        background-color: map-get($colors, highlight);
+        border-left: 5px solid map-get($colors-article, blockquote-border);
+        background-color: map-get($colors-article, blockquote-background);
 
         & > p {
             &:first-child {
@@ -47,6 +48,24 @@ article {
 
             &:last-child {
                 margin-bottom: 0;
+            }
+        }
+    }
+
+    &.history {
+        .post {
+            display: flex;
+            flex-direction: row;
+
+            time {
+                display: block;
+                margin-right: rhythm(1);
+                font-weight: bold;
+            }
+
+            a {
+                display: block;
+                flex: 1;
             }
         }
     }

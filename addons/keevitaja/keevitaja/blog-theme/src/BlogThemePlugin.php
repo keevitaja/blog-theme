@@ -3,6 +3,7 @@
 namespace Keevitaja\BlogTheme;
 
 use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
+use Keevitaja\BlogTheme\GetNavigation;
 use Keevitaja\BlogTheme\GetSnippet;
 use Keevitaja\BlogTheme\Support\ImageRepository;
 use Twig_SimpleFunction;
@@ -17,6 +18,9 @@ class BlogThemePlugin extends Plugin
             }, ['is_safe' => ['html']]),
             new Twig_SimpleFunction('images', function($type, $key = 'post') {
                 return app(GetImages::class, ['type' => $type, 'key' => $key]);
+            }),
+            new Twig_SimpleFunction('navigation', function($menu = null) {
+                return app(GetNavigation::class, ['menu' => $menu]);
             }),
             new Twig_SimpleFunction('dd', function($variable) {
                 return dd($variable);

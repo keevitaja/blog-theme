@@ -6,13 +6,6 @@
             <span></span>
         </a>
 
-        <nav class="main-nav">
-            {% for link in links('header').get() %}
-                <a target="{{ link.target }}" class="item" href="{{ link.url }}">
-                    <span class="{{ link.class }}"></span>
-                    <span class="label">{{ link.title }}</span>
-                </a>
-            {% endfor %}
-        </nav>
+        {{ navigation('header')|raw }}
     </div>
 </header>

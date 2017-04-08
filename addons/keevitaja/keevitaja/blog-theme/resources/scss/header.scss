@@ -41,7 +41,7 @@ div.app > header {
                 }
             }
 
-            &:hover span.icon {
+            &:hover span.icon, &.current span.icon {
                 color: map-get($colors-theme, header-hover);
             }
         }

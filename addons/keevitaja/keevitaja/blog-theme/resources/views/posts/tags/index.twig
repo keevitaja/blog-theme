@@ -1,9 +1,14 @@
 {% extends 'theme::app' %}
 
-{% set posts = entries('posts').recent().paginate() %}
+{% set posts = entries('posts').whereTags('LIKE', '%"' ~ route_parameter('tag') ~ '"%').paginate() %}
 
 {% block body %}
     <main>
+        <header>
+            <a href="{{ url('/') }}">{{ trans('theme::addon.breadcrumb.home') }}</a> <span class="spacer">»</span>
+            {{ trans('theme::addon.blog.tag_title', { 'name': tag }) }}
+        </header>
+
         {% for post in posts %}
             <article {% if loop.last %} class="last" {% endif %}>
                 <aside class="post">

@@ -1,18 +1,17 @@
 {% extends 'theme::app' %}
 
-{% set posts = entries('posts').recent().paginate() %}
+{% set posts = category.posts().live().paginate() %}
 
 {% block body %}
     <main>
+        <header>
+            <a href="{{ url('/') }}">{{ trans('theme::addon.breadcrumb.home') }}</a> <span class="spacer">»</span>
+            {{ trans('theme::addon.blog.category_title', { 'name': category.title }) }}
+        </header>
+
         {% for post in posts %}
             <article {% if loop.last %} class="last" {% endif %}>
                 <aside class="post">
-                    {% if post.category %}
-                        {{ html_link(post.category.route('view'), post.category.name) }}
-
-                        <span class="spacer">·</span>
-                    {% endif %}
-
                     <time datetime="{{ post.publish_at.iso }}">
                         {{ post.publish_at.format(config_get('streams::datetime.date_format')) }}
                     </time>

@@ -2,12 +2,58 @@ main {
     position: relative;
     height: 100vh;
 
+    & > header {
+        padding-left: 2px;
+        font-size: 13px;
+        margin-bottom: rhythm(1);
+
+        span.spacer {
+            margin: 0 rhythm(0.5);
+        }
+    }
+
     footer {
         padding-bottom: 20px;
         font-size: 13px;
 
         & > a {
             margin-right: rhythm(0.5);
+        }
+    }
+
+    ul.pagination {
+        display: block;
+        margin: 0 0 rhythm(1) 0;
+        padding: 0;
+        @include clearfix;
+        list-style: none;
+
+        li {
+            display: block;
+            float: left;
+            margin-right: rhythm(0.5);
+            font-weight: bold;
+
+            .page-link {
+                display: block;
+                width: rhythm(2);
+                line-height: rhythm(2);
+                background-color: map-get($colors-paginator, background);
+                text-align: center;
+                color: map-get($colors-paginator, font);
+
+                &:hover {
+                    background-color: map-get($colors-paginator, hover);
+                }
+            }
+
+            &.page-item.active .page-link {
+                background-color: map-get($colors-paginator, hover);
+            }
+
+            &.page-item.disabled .page-link {
+                background-color: map-get($colors-paginator, background);
+            }
         }
     }
 }

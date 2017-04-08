@@ -17,14 +17,14 @@ class BlogThemeServiceProvider extends AddonServiceProvider
     protected $overrides = [
         'anomaly.module.posts::posts/index'      => 'keevitaja.theme.blog::posts/index',
         'anomaly.module.posts::posts/view'       => 'keevitaja.theme.blog::posts/view',
-        'anomaly.module.posts::categories/index' => 'keevitaja.theme.blog::categories/index',
+        'anomaly.module.posts::categories/index' => 'keevitaja.theme.blog::posts/categories/index',
+        'anomaly.module.posts::tags/index'       => 'keevitaja.theme.blog::posts/tags/index',
     ];
 
     public function boot()
     {
-        PostModel::observe(ModelObserver::class);
-        PageModel::observe(ModelObserver::class);
-        FileModel::observe(ModelObserver::class);
-        FolderModel::observe(ModelObserver::class);
+        \Event::listen(['eloquent.saved: *', 'eloquent.deleted: *'], function($event) {
+            cache()->flush();
+        });
     }
 }
