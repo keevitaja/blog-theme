@@ -9,8 +9,8 @@
     <title>{{ template.meta_title }}</title>
     <meta name="description" content="{{ template.meta_description }}">
 
-    {{ asset_add('app.css', 'theme::scss/app.scss', ['min', 'live']) }}
-    {{ asset_style('app.css') }}
+    {{ asset_add('app.css', 'theme::scss/app.scss', ['live']) }}
+    {{ asset_style('app.css', ['min']) }}
 </head>
 <body>
     <div class="app">
