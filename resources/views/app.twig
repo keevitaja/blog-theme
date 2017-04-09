@@ -32,5 +32,7 @@
 
     {{ asset_add('app.js', 'theme::js/app.js') }}
     {{ asset_script('app.js', ['min', 'live']) }}
+
+    {% include 'theme::partials.ga' %}
 </body>
 </html>
