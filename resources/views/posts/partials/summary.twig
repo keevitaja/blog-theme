@@ -1,0 +1,5 @@
+<h1 class="title"><a href="{{ post.route('view') }}">{{ post.title }}</a></h1>
+
+{{ post.summary|raw }}
+
+<p>{{ html_link(post.route('view'), trans('theme::addon.blog.more')) }}</p>

@@ -1,9 +1,0 @@
-<div class="post-info">
-    {% if post.category %}
-        {{ html_link(post.category.route('view'), post.category.name) }}
-
-        <span class="spacer">·</span>
-    {% endif %}
-
-    {% include 'theme::posts.partials.time' %}
-</div>

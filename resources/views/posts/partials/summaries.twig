@@ -1,0 +1,15 @@
+{% for post in posts %}
+    <article {% if loop.last %} class="last" {% endif %}>
+        <aside>
+            {% if post.category and cat == true %}
+                {{ html_link(post.category.route('view'), post.category.name) }}
+
+                <span class="spacer">·</span>
+            {% endif %}
+
+            {% include 'theme::posts.partials.time' %}
+        </aside>
+
+        {% include 'theme::posts.partials.summary' %}
+    </article>
+{% endfor %}

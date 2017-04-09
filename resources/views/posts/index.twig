@@ -1,1 +1,15 @@
-{% extends 'theme::layouts.posts' %}
+{% extends 'theme::app' %}
+
+{% set posts = entries('posts').recent().paginate() %}
+
+{% block body %}
+    <main>
+        {% include 'theme::posts.partials.summaries' with {'cat': true} %}
+
+        {{ posts.links|raw }}
+
+        <footer>
+            {{ trans('theme::addon.footer')|raw }}
+        </footer>
+    </main>
+{% endblock %}

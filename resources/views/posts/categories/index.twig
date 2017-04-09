@@ -4,26 +4,9 @@
 
 {% block body %}
     <main>
-        <header>
-            <a href="{{ url('/') }}">{{ trans('theme::addon.breadcrumb.home') }}</a> <span class="spacer">»</span>
-            {{ trans('theme::addon.blog.category_title', { 'name': category.title }) }}
-        </header>
+        {% include 'theme::posts.partials.header' with {'title': trans('theme::addon.blog.category_title', { 'name': category.title })} %}
 
-        {% for post in posts %}
-            <article {% if loop.last %} class="last" {% endif %}>
-                <aside class="post">
-                    <time datetime="{{ post.publish_at.iso }}">
-                        {{ post.publish_at.format(config_get('streams::datetime.date_format')) }}
-                    </time>
-                </aside>
-
-                <h1 class="title"><a href="{{ post.route('view') }}">{{ post.title }}</a></h1>
-
-                {{ post.summary|raw }}
-
-                <p>{{ html_link(post.route('view'), trans('theme::addon.blog.more')) }}</p>
-            </article>
-        {% endfor %}
+        {% include 'theme::posts.partials.summaries' %}
 
         {{ posts.links|raw }}
 
