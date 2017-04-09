@@ -93,7 +93,7 @@ class GetImages
         return $this->rawImages($files);
     }
 
-    protected function files($args)
+    protected function files(...$args)
     {
         return $this->rawImages($this->file->whereIn('id', $args)->get());
     }
