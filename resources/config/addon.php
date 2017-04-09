@@ -2,10 +2,10 @@
 
 return [
     'cache' => [
-        'expires' => env('KEEVITAJA_BLOG_CACHE_EXPIRES', 24 * 30),
-        'enabled' => env('KEEVITAJA_BLOG_CACHE_ENABLED', true),
+        'expires' => env('BLOG_CACHE_EXPIRES', 24 * 30),
+        'enabled' => env('BLOG_CACHE_ENABLED', true),
     ],
-    'disqus'      => env('KEEVITAJA_BLOG_DISQUS', 'keevitaja'),
+    'disqus'      => env('BLOG_DISQUS', 'keevitaja'),
     'images' => [
         'slugs' => [
             'image' => 'image',
@@ -17,7 +17,19 @@ return [
             'default' => [
                 'full' => [1152, null, 'resize'],
                 'thumb' => [480, 240, 'fit'],
-            ]
+            ],
+            'double' => [
+                'full' => [1152, null, 'resize'],
+                'thumb' => [480, 240, 'fit'],
+            ],
+            'single' => [
+                'full' => [1152, null, 'resize'],
+                'thumb' => [768, null, 'resize'],
+            ],
+            'quater' => [
+                'full' => [1152, null, 'resize'],
+                'thumb' => [480, 240, 'fit'],
+            ],
         ]
     ]
 ];

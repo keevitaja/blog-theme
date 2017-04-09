@@ -101,11 +101,12 @@ class GetImages
     protected function rawImages($files)
     {
         $images = [];
+        $title = $this->config['slugs']['title'];
 
         foreach($files as $file) {
             $images[] = [
                 'image' => $file->image(),
-                'title' => $file->entry ? $file->entry->title : ''
+                'title' => $file->entry ? $file->entry->{$title} : ''
             ];
         }
 
@@ -125,11 +126,12 @@ class GetImages
     protected function template($args, $type)
     {
         $images = [];
+        $slugs = $this->config['slugs'];
 
-        foreach ($this->template->get($type)->images->whereIn('slug', $args) as $file) {
+        foreach ($this->template->get($type)->{$slugs['images']}->whereIn($slugs['slug'], $args) as $file) {
             $images[] = [
-                'image' => $file->image->image,
-                'title' => $file->title ? $file->title->value : ''
+                'image' => $file->{$slugs['image']}->image,
+                'title' => $file->{$slugs['title']} ? $file->{$slugs['title']}->value : ''
             ];
         }
 

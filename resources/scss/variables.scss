@@ -71,5 +71,43 @@ $images: (
             columns: 3,
             gutter: 10px
         )
+    ),
+    quater: (
+        0: (
+            columns: 1,
+            gutter: 10px,
+            max: 479
+        ),
+        480: (
+            columns: 2,
+            gutter: 10px,
+            max: 639
+        ),
+        640: (
+            columns: 3,
+            gutter: 10px,
+            max: 767
+        ),
+        768: (
+            columns: 4,
+            gutter: 10px
+        )
+    ),
+    double: (
+        0: (
+            columns: 1,
+            gutter: 10px,
+            max: 479
+        ),
+        480: (
+            columns: 2,
+            gutter: 10px
+        )
+    ),
+    single: (
+        0: (
+            columns: 1,
+            gutter: 10px
+        )
     )
 );
