@@ -7,6 +7,7 @@ use Keevitaja\BlogTheme\GetNavigation;
 use Keevitaja\BlogTheme\GetSnippet;
 use Keevitaja\BlogTheme\Support\ImageRepository;
 use Twig_SimpleFunction;
+use Twig_SimpleFilter;
 
 class BlogThemePlugin extends Plugin
 {
@@ -22,6 +23,17 @@ class BlogThemePlugin extends Plugin
             new Twig_SimpleFunction('dd', function($variable) {
                 return dd($variable);
             }),
+        ];
+    }
+
+    public function getFilters()
+    {
+        return [
+            new Twig_SimpleFilter('code', function($data) {
+                $replace = '<pre><code class="language-$1">$2</code></pre>';
+
+                return preg_filter("/::code-([a-z]+)\n((.|\n)*?)\n::/", $replace, (string)$data);
+            })
         ];
     }
 }

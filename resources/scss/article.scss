@@ -52,6 +52,10 @@ article {
         }
     }
 
+    :not(pre) > code {
+        background: map-get($colors-highlight, background);
+    }
+
     &.history {
         .post {
             display: flex;
