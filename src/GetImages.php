@@ -84,7 +84,7 @@ class GetImages
         return $images;
     }
 
-    protected function folders(...$args)
+    protected function folders($args)
     {
         $files = $this->file->whereHas('folder', function($q) use($args) {
             $q->whereIn('id', $args);
@@ -93,7 +93,7 @@ class GetImages
         return $this->rawImages($files);
     }
 
-    protected function files(...$args)
+    protected function files($args)
     {
         return $this->rawImages($this->file->whereIn('id', $args)->get());
     }
