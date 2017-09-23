@@ -2,7 +2,7 @@
 
 return [
     'cache' => [
-        'expires' => env('BLOG_CACHE_EXPIRES', 24 * 30),
+        'expires' => env('BLOG_CACHE_EXPIRES', 60 * 24 * 30),
         'enabled' => env('BLOG_CACHE_ENABLED', true),
     ],
     'disqus'      => env('BLOG_DISQUS', 'keevitaja'),
