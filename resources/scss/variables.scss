@@ -31,6 +31,7 @@ $colors-theme: (
 $colors-highlight: (
     font: map-get($colors, inverse),
     background: map-get($colors, highlight),
+    inline: map-get($colors, brand),
     selection: map-get($colors, brand),
     punctuation: map-get($colors, inverse),
     comment: #778899,
