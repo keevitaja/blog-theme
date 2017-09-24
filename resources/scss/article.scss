@@ -53,7 +53,8 @@ article {
     }
 
     :not(pre) > code {
-        background: map-get($colors-highlight, inline);
+        background: map-get($colors-highlight, background);
+        color: map-get($colors-highlight, inline);
     }
 
     &.history {
