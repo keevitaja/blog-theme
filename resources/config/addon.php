@@ -6,6 +6,7 @@ return [
         'enabled' => env('BLOG_CACHE_ENABLED', true),
     ],
     'disqus'      => env('BLOG_DISQUS', 'keevitaja'),
+    'crisp'      => env('BLOG_CRISP', false),
     'images' => [
         'slugs' => [
             'image' => 'image',
