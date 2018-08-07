@@ -19,11 +19,13 @@
     <div class="app">
         {% include 'theme::partials.header' %}
 
-        {% block body %}{% endblock %}
+        <div class="container">
+            {% block body %}{% endblock %}
 
-        <aside>
-            <div class="container"></div>
-        </aside>
+            <aside>
+                <div class="container"></div>
+            </aside>
+        </div>
     </div>
 
     {{ asset_add('vendor.js', 'theme::js/prism.js') }}
