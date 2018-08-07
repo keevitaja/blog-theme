@@ -6,6 +6,8 @@ div.app > header {
     border-bottom: 5px solid map-get($colors-theme, header-background);
 
     & > nav.main-nav {
+        margin-top: 5px;
+
         & a.item {
             text-decoration: none;
 
