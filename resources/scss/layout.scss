@@ -36,11 +36,17 @@ div.app {
         }
 
         & > main {
+            display: flex;
+            flex-direction: column;
             width: 768px;
             min-width: 0;
-
+            height: calc(100vh - 55px);
             padding: rhythm(0.5) rhythm(0.5) 0 rhythm(0.5);
             box-sizing: border-box;
+
+            @media screen and (min-width: 768px)  {
+                height: calc(100vh - 5px);
+            }
 
             @media screen and (min-width: 480px) {
                 padding: rhythm(1) rhythm(1) 0 rhythm(1);
