@@ -4,12 +4,36 @@ div.app {
         top: 0;
         width: 100%;
         height: 50px;
+
+        @media screen and (min-width: 768px) {
+            height: 0;
+        }
     }
 
     & > div.container {
         display: flex;
         flex-direction: row;
         margin-top: 55px;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 5px;
+        }
+
+        & > header {
+            display: none;
+            width: 50px;
+            min-width: 50px;
+
+            @media screen and (min-width: 768px) {
+                display: block;
+            }
+
+            & > nav.main-nav {
+                position: fixed;
+                top: 28px;
+                width: 50px;
+            }
+        }
 
         & > main {
             width: 768px;

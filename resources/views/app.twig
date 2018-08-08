@@ -20,6 +20,8 @@
         {% include 'theme::partials.header' %}
 
         <div class="container">
+            {% include 'theme::partials.header' %}
+
             {% block body %}{% endblock %}
 
             <aside>
@@ -32,8 +34,9 @@
     {{ asset_add('vendor.js', 'theme::js/baguetteBox.min.js') }}
     {{ asset_script('vendor.js') }}
 
-    {{ asset_add('app.js', 'theme::js/app.js') }}
-    {{ asset_script('app.js', ['min', 'live']) }}
+    <script>
+        baguetteBox.run('.images-container > div');
+    </script>
 
     {% include 'theme::partials.ga' %}
 </body>
